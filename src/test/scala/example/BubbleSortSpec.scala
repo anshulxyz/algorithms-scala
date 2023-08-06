@@ -8,7 +8,7 @@ class BubbleSortSpec extends FunSuite {
 
     var arr: Array[Int] = array // create a mutable copy
     var clean_pass      = false // set to false, to initialize the first run
-    var length = arr.length
+    var length          = arr.length
 
     while (!clean_pass) {
       clean_pass = true
@@ -17,10 +17,10 @@ class BubbleSortSpec extends FunSuite {
       // and the list is sorted
 
       for (
-        i <- 0 until length - 1
+        i <- 0 until length - 1 // minus - 1 to avoid IndexOutOfRange error
       ) {
-        if (arr(i) > arr(i+1)) {
-          arr = swap(arr, i, i+1)
+        if (arr(i) > arr(i + 1)) {
+          arr = swap(arr, i, i + 1)
           clean_pass = false
         }
       }
@@ -55,8 +55,8 @@ class BubbleSortSpec extends FunSuite {
       Array(0, 1, 2, 3, 7, 9).toSeq
     )
     assertEquals(
-      bubbleSort(Array(1,2,3)).toSeq,
-      Array(1,2,3).toSeq
+      bubbleSort(Array(3, 1, 2)).toSeq,
+      Array(1, 2, 3).toSeq
     )
     assertEquals(
       bubbleSort(Array(1)).toSeq,
