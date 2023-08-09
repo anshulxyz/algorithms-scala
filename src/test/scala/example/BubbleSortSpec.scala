@@ -8,17 +8,15 @@ class BubbleSortSpec extends FunSuite {
 
     var arr: Array[Int] = array // create a mutable copy
     var clean_pass      = false // set to false, to initialize the first run
-    var length          = arr.length
+    var length = arr.length - 1 // minus - 1 to avoid IndexOutOfRange error
 
     while (!clean_pass) {
       clean_pass = true
       // set it to true, so that if this doesn't get modified in next statements
       // then loop stops and that would mean no variables had to be swapped,
-      // and the list is sorted
+      // implying that the list is sorted
 
-      for (
-        i <- 0 until length - 1 // minus - 1 to avoid IndexOutOfRange error
-      ) {
+      for (i <- 0 until length) {
         if (arr(i) > arr(i + 1)) {
           arr = swap(arr, i, i + 1)
           clean_pass = false
@@ -28,11 +26,9 @@ class BubbleSortSpec extends FunSuite {
       length -= 1 // after one complete run of the `while` we set one element
       // to the correct place, so we don't have to check it anymore, thus the list
       // of elements we need to check decreases by one after each run
-
     }
 
     arr
-
   }
 
   def swap(arr: Array[Int], first: Int, second: Int): Array[Int] = {
