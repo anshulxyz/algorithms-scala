@@ -10,7 +10,7 @@ class SelectionSortSpec extends AnyFlatSpec with Matchers {
     var lowest          = 0
     var start           = 0
 
-    while (start < arr.length) {
+    for (start <- 0 until arr.length) {
 
       // loop over the Array and find the index of the smallest number
       for (i <- start until arr.length) {
@@ -22,11 +22,8 @@ class SelectionSortSpec extends AnyFlatSpec with Matchers {
       // swap between start and lowest
       arr = swap(arr, start, lowest)
 
-      // increment start since we don't have to sort the lowest from last iteration again
-      start += 1
-
       // reseting lowest to start clean comparison
-      lowest = start
+      lowest = start+1
     }
 
     arr
