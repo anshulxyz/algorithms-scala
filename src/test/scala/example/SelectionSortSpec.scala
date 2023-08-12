@@ -7,11 +7,9 @@ class SelectionSortSpec extends AnyFlatSpec with Matchers {
 
   def selectionSort(array: Array[Int]): Array[Int] = {
     var arr: Array[Int] = array // creating a mutable copy
-    var lowest          = 0
-    var start           = 0
 
     for (start <- 0 until arr.length) {
-
+      var lowest = start
       // loop over the Array and find the index of the smallest number
       for (i <- start until arr.length) {
         if (arr(i) < arr(lowest)) {
@@ -19,11 +17,7 @@ class SelectionSortSpec extends AnyFlatSpec with Matchers {
         }
       }
 
-      // swap between start and lowest
       arr = swap(arr, start, lowest)
-
-      // reseting lowest to start clean comparison
-      lowest = start+1
     }
 
     arr
