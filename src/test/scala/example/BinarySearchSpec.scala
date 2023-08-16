@@ -8,7 +8,7 @@ class BinarySearchSuite extends FunSuite {
     var start: Int = 0
     var end: Int   = arr.length - 1
     while (start <= end) {
-      val mid: Int = (start + end) / 2
+      val mid: Int = (start + end) / 2 // 5 / 2 = 2
 
       if (arr(mid) == num) {
         return Some(mid)
