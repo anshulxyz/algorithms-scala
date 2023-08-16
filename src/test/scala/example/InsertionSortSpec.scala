@@ -15,18 +15,17 @@ class InsertionSortSpec extends AnyFlatSpec with Matchers {
     // 5. We INSERT the temp value at the gap/opening
 
     for (i <- 1 until arr.length) {
-      val temp = arr(i) //1
-      var gap  = i
+      val temp = arr(i)
 
       var j = i-1
-      while (j >= 0 && arr(j) > temp) {       // doing this because Scala doesn't have a "break"
+      while (j >= 0 && arr(j) > temp) {
         arr(j+1) = arr(j) // moving element to the right
-        gap = j // moving gap to the left
 
         j -=  1
       }
 
-      arr(gap) = temp // 5, INSERTION
+      // j+1 is where the opening/gap is
+      arr(j+1) = temp
     }
 
     arr
