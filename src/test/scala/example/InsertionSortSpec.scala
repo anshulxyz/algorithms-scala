@@ -18,11 +18,12 @@ class InsertionSortSpec extends AnyFlatSpec with Matchers {
       val temp = arr(i) //1
       var gap  = i
 
-      for (j <- i - 1 to 0 by -1) { // 3,4, moving towards left until we reach start
-        if (arr(j) > temp) { // 4, OR until we encounter a value < temp
-          arr(j + 1) = arr(j) // 3
-          gap -= 1 // the last swap will give me the location of gap
-        }
+      var j = i-1
+      while (j >= 0 && arr(j) > temp) {       // doing this because Scala doesn't have a "break"
+        arr(j+1) = arr(j) // moving element to the right
+        gap = j // moving gap to the left
+
+        j -=  1
       }
 
       arr(gap) = temp // 5, INSERTION
@@ -39,8 +40,8 @@ class InsertionSortSpec extends AnyFlatSpec with Matchers {
   }
 
   "Insertion Sort" should "sort an array of integers in ascending order" in {
-    val unsortedArray = Array(64, 34, 25, 12, 22, 11, 90)
-    val sortedArray   = Array(11, 12, 22, 25, 34, 64, 90)
+    val unsortedArray = Array(4,2,7,1,3)
+    val sortedArray   = Array(1,2,3,4,7)
     insertionSort(unsortedArray) shouldEqual sortedArray
   }
 
