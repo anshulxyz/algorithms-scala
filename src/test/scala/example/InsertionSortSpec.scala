@@ -17,15 +17,15 @@ class InsertionSortSpec extends AnyFlatSpec with Matchers {
     for (i <- 1 until arr.length) {
       val temp = arr(i)
 
-      var j = i-1
+      var j = i - 1 // immediate left value
       while (j >= 0 && arr(j) > temp) {
-        arr(j+1) = arr(j) // moving element to the right
+        arr(j + 1) = arr(j) // moving element to the right
 
-        j -=  1
+        j -= 1 // to move further left
       }
 
       // j+1 is where the opening/gap is
-      arr(j+1) = temp
+      arr(j + 1) = temp
     }
 
     arr
@@ -39,8 +39,8 @@ class InsertionSortSpec extends AnyFlatSpec with Matchers {
   }
 
   "Insertion Sort" should "sort an array of integers in ascending order" in {
-    val unsortedArray = Array(4,2,7,1,3)
-    val sortedArray   = Array(1,2,3,4,7)
+    val unsortedArray = Array(4, 2, 7, 1, 3)
+    val sortedArray   = Array(1, 2, 3, 4, 7)
     insertionSort(unsortedArray) shouldEqual sortedArray
   }
 
