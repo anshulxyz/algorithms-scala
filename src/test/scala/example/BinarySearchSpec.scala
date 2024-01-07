@@ -1,27 +1,9 @@
 package example
 
+import BinarySearch._
 import munit._
 
 class BinarySearchSuite extends FunSuite {
-
-  def binarySearch(arr: Array[Int], num: Int): Option[Int] = {
-    var start: Int = 0
-    var end: Int   = arr.length - 1
-    while (start <= end) {
-      val mid: Int = (start + end) / 2 // 5 / 2 = 2
-
-      if (arr(mid) == num) {
-        return Some(mid)
-      } else if (arr(mid) > num) {
-        end = mid - 1
-      } else {
-        start = mid + 1
-      }
-    }
-
-    None
-  }
-
   test(
     "Binary Search should return index zero for an array with a single element matching the target"
   ) {
