@@ -6,19 +6,19 @@ object BubbleSort {
 
     var notCleanPass = true // to initialize the first run
 
-    var size = arr.size - 1 // because we'll ahve to access the address at size+1
-                            // so we want to avoid the index out of range error
+    var size = arr.size
 
     while (notCleanPass) {
       notCleanPass = false  // if this doesn't get modified
-                            // we'll know we had a clean run
-                            // refer line no. 20
+                            // we'll know we had a clean run, refer line no. 20
 
-      for (i <- 0 until size) {
+      var i=0               // start at 0 every run
+      while (i + 1 < size) {
         if (arr(i) > arr(i+1)) {
           arr = swap(arr, i, i+1)
           notCleanPass = true
         }
+        i += 1
       }
       size -= 1 // because after each run, we'll at least end up putting
                 // largest value (of that run) in place
