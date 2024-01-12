@@ -3,32 +3,9 @@ package example
 import org.scalatest.flatspec._
 import org.scalatest.matchers.should._
 
+import SelectionSort._
+
 class SelectionSortSpec extends AnyFlatSpec with Matchers {
-
-  def selectionSort(array: Array[Int]): Array[Int] = {
-    var arr: Array[Int] = array // creating a mutable copy
-
-    for (start <- 0 until arr.length) {
-      var lowest = start
-      // loop over the Array and find the index of the smallest number
-      for (i <- start until arr.length) {
-        if (arr(i) < arr(lowest)) {
-          lowest = i
-        }
-      }
-
-      arr = swap(arr, start, lowest)
-    }
-
-    arr
-  }
-
-  def swap(arr: Array[Int], first: Int, second: Int): Array[Int] = {
-    val temp = arr(first)
-    arr(first) = arr(second)
-    arr(second) = temp
-    arr
-  }
 
   "Selection Sort" should "sort an array of integers in ascending order" in {
     val unsortedArray = Array(64, 34, 25, 12, 22, 11, 90)
