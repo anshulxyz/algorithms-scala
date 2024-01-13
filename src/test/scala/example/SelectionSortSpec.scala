@@ -28,4 +28,10 @@ class SelectionSortSpec extends AnyFlatSpec with Matchers {
     val sortedArray         = Array(1, 2, 2, 5, 5, 8, 9)
     selectionSort(arrayWithDuplicates) shouldEqual sortedArray
   }
+
+  "Selection Sort Reverse" should "sort an array of integers in descending order" in {
+    selectionSortReverse(Array(1,2,3)) shouldEqual Array(3,2,1)
+    selectionSortReverse(Array(4,3,5,6,2,1)) shouldEqual Array(6,5,4,3,2,1)
+  }
+
 }
