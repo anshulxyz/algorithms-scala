@@ -1,5 +1,7 @@
 package example
 
+import Utils._
+
 object BubbleSort {
   def bubbleSort(array: Array[Int]): Array[Int] = {
     var arr = array         // creating a mutable copy
@@ -23,14 +25,6 @@ object BubbleSort {
       size -= 1 // because after each run, we'll at least end up putting
                 // largest value (of that run) in place
     }
-
-    arr
-  }
-
-  private def swap(arr: Array[Int], x: Int, y: Int): Array[Int] = {
-    val temp = arr(x)
-    arr(x) = arr(y)
-    arr(y) = temp
 
     arr
   }

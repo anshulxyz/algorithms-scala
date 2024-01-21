@@ -1,5 +1,7 @@
 package example
 
+import Utils._
+
 object SelectionSort {
   def selectionSort(array: Array[Int]): Array[Int] = {
     var arr = array           // create a mutable copy
@@ -32,13 +34,6 @@ object SelectionSort {
 
       swap (arr, i, biggest)
     }
-    arr
-  }
-
-  def swap(arr: Array[Int], first: Int, second: Int): Array[Int] = {
-    val temp = arr(first)
-    arr(first) = arr(second)
-    arr(second) = temp
     arr
   }
 }
